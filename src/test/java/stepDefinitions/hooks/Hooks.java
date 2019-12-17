@@ -4,13 +4,10 @@ package stepDefinitions.hooks;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.Augmenter;
 import stepDefinitions.World;
 
 import java.io.File;
@@ -40,7 +37,7 @@ public class Hooks {
 		properties = new Properties();
 
 		try {
-			properties.load(new FileInputStream(new File("./src/test/resources/config/stg2.properties")));
+			properties.load(new FileInputStream(new File("./src/test/resources/config/eBay.properties")));
 		} 	catch (IOException e) {
 			e.printStackTrace();
 		}
