@@ -1,4 +1,4 @@
-# Basic Framework for Woolworths
+# Basic Framework for training & job applications
 
 Goal of this exercise:
 To demonstrate your ability to design and implement browser-based automated tests
