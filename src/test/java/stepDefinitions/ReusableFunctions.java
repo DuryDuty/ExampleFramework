@@ -1,12 +1,11 @@
 package stepDefinitions;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.junit.jupiter.api.Assertions;
 
 public class ReusableFunctions {
     WebDriver driver;
@@ -49,11 +48,11 @@ public class ReusableFunctions {
     }
 
     public void assertExists(WebElement element){
-        Assert.assertEquals(true, element.isDisplayed());
+        Assertions.assertTrue(element.isDisplayed());
     }
 
     public void genericCompare(String actualValue, String expectedValue){
-        Assert.assertEquals(actualValue,expectedValue);
+        Assertions.assertEquals(actualValue,expectedValue);
     }
 
     //Used for getting the text of the selected value from a combo box
