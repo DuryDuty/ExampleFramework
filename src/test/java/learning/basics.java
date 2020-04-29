@@ -1,28 +1,51 @@
 package learning;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import org.junit.jupiter.api.Test;
+import stepDefinitions.ReusableFunctions;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class basics {
-    public static void main(String[] args){
-        System.out.println("Cheesecake");
-
-        //given - inputs
-        //when - API submit
-        //Then - validation
+    @Test
+    public void basicAPI(){
+    //public static void main(String[] args){
         RestAssured.baseURI= "https://rahulshettyacademy.com/";
+
+        //Add place through API
+        String response =
         given().log().all()
                 .queryParam("key","qaclick123")
                 .header("Content-Type","application/json")
-                .body(payload.ReturnPayload())
+                .body(payloads.AddPlace())
         .when().post("maps/api/place/add/json")
-        .then().log().all()
+        .then()
                 .assertThat()
                 .statusCode(200)
                 .body("scope",equalTo("APP"))
-                .header("server","Apache/2.4.18 (Ubuntu)");
+                .header("server","Apache/2.4.18 (Ubuntu)").extract().response().asString();
 
+        String placeID = new JsonPath(response).getString("place_id");
 
+        //Update place through API
+        given().log().all()
+                .queryParam("key", "qaclick123")
+                .header("Content-Type","application/json")
+                .body(payloads.UpdatePlace(placeID))
+                .when().put("/maps/api/place/update/json")
+                .then().assertThat().log().all()
+                    .statusCode(200).body("msg",equalTo("Address successfully updated"));
+
+        //Get updated place through API
+        String updatedPlace = given()
+                .queryParam("key", "qaclick123").queryParam("place_id",placeID)
+                .when().get("/maps/api/place/get/json")
+                .then().assertThat().log().all()
+                .statusCode(200).extract().response().asString();
+
+        String updatedAddress = new JsonPath(updatedPlace).getString("address");
+        ReusableFunctions.genericCompare("69 Summer walk, USA",updatedAddress);
     }
 }

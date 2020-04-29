@@ -51,7 +51,7 @@ public class ReusableFunctions {
         Assertions.assertTrue(element.isDisplayed());
     }
 
-    public void genericCompare(String actualValue, String expectedValue){
+    public static void genericCompare(String actualValue, String expectedValue){
         Assertions.assertEquals(actualValue,expectedValue);
     }
 
