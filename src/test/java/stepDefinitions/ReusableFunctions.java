@@ -23,8 +23,7 @@ public class ReusableFunctions {
     }
 
     public WebElement makeExplicitWebElement(WebElement element) {
-        WebElement elementExplicit = new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(element));
-        return elementExplicit;
+        return new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void genericSendkeys(WebElement element, CharSequence chars) {
