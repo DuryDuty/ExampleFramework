@@ -11,27 +11,28 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import learning.AddPlace;
 import learning.payloadBuilder;
 import stepDefinitions.ReusableFunctions;
+
+import java.io.FileNotFoundException;
 
 import static io.restassured.RestAssured.given;
 
 public class placeAPI {
-    ResponseSpecification responseSpec;
     RequestSpecification requestSpec;
+    ResponseSpecification responseSpec;
     Response response;
     JsonPath js;
 
     @Given("Add place Payload")
-    public void addPlacePayload() {
-        //AddPlace placePayload = payloadBuilder.getAddPlace();
-        RequestSpecification temp = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addQueryParam("key", "qaclick123")
-                .setContentType(ContentType.JSON).build();
-        //requestSpec = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addQueryParam("key", "qaclick123")
-        //        .setContentType(ContentType.JSON).build();
-        //requestSpec = temp.given().spec(requestSpec).body(payloadBuilder.getAddPlace());
-        requestSpec = given().spec(temp).body(payloadBuilder.getAddPlace());
+    public void addPlacePayload() throws FileNotFoundException {
+        //requestSpec = given().spec(payloadBuilder.requestSpecification()).body(payloadBuilder.getAddPlaceBody());
+        responseSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+    }
+
+    @Given("Add place Payload with {string}, {string}, {string}")
+    public void addPlacePayloadWith(String name, String lang, String address) throws FileNotFoundException {
+        requestSpec = given().spec(payloadBuilder.requestSpecification()).body(payloadBuilder.getAddPlaceBody(name,lang,address));
         responseSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
     }
 
@@ -41,8 +42,8 @@ public class placeAPI {
                 .then().spec(responseSpec).extract().response();
     }
 
-    @Then("the respose returns {string}")
-    public void theResposeReturns(String statusCode) {
+    @Then("the response returns {string}")
+    public void theResponseReturns(String statusCode) {
         ReusableFunctions.genericCompare(String.valueOf(response.getStatusCode()),statusCode);
     }
 

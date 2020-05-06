@@ -30,14 +30,13 @@ public class Hooks {
 
 	@Before(order=0)
 	public void doSetupBeforeExecution() {
-		Properties properties;
+		Properties properties = new Properties();
 		String browser;
 		String url;
 		String projectPath = System.getProperty("user.dir");
-		properties = new Properties();
 
 		try {
-			properties.load(new FileInputStream(new File("./src/test/resources/config/eBay.properties")));
+			properties.load(new FileInputStream(new File("./src/test/resources/config/global.properties")));
 		} 	catch (IOException e) {
 			e.printStackTrace();
 		}
