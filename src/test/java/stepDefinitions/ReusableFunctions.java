@@ -5,11 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.junit.jupiter.api.Assertions;
+import org.testng.Assert;
 
 public class ReusableFunctions {
     WebDriver driver;
-
     public ReusableFunctions(WebDriver driver){
         this.driver = driver;
     }
@@ -47,11 +46,11 @@ public class ReusableFunctions {
     }
 
     public void assertExists(WebElement element){
-        Assertions.assertTrue(element.isDisplayed());
+        Assert.assertTrue(element.isDisplayed());
     }
 
     public static void genericCompare(String actualValue, String expectedValue){
-        Assertions.assertEquals(actualValue,expectedValue);
+        Assert.assertEquals(actualValue,expectedValue);
     }
 
     //Used for getting the text of the selected value from a combo box

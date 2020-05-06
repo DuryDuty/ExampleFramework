@@ -1,7 +1,7 @@
-package stepDefinitions.hooks;
+package stepDefinitions.WebDriver.hooks;
 
 import org.openqa.selenium.WebDriver;
-import stepDefinitions.World;
+import stepDefinitions.WebDriver.World;
 
 public class ScenarioHooks {
     private World world;

@@ -1,8 +1,13 @@
 package learning;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import org.junit.jupiter.api.Test;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import org.testng.annotations.Test;
 import stepDefinitions.ReusableFunctions;
 
 import static io.restassured.RestAssured.*;
@@ -11,7 +16,6 @@ import static org.hamcrest.Matchers.*;
 public class basics {
     @Test
     public void basicAPI(){
-    //public static void main(String[] args){
         RestAssured.baseURI= "https://rahulshettyacademy.com/";
 
         //Add place through API
@@ -47,5 +51,24 @@ public class basics {
 
         String updatedAddress = new JsonPath(updatedPlace).getString("address");
         ReusableFunctions.genericCompare("69 Summer walk, USA",updatedAddress);
+    }
+
+    @Test
+    public void specBuildAPI(){
+        RequestSpecification requestSpec = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com/")
+                .addQueryParam("key","qaclick123")
+                .addHeader("Content-Type","application/json").build();
+
+        ResponseSpecification responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+
+        //Add place specbuilder
+        String response =
+        given().log().all().spec(requestSpec)
+                .body(payloads.AddPlace())
+                .when().post("maps/api/place/add/json")
+                .then().log().all().spec(responseSpec).extract().response().asString();
+
+        String placeID = new JsonPath(response).getString("place_id");
+        System.out.println("Thingy done" + placeID);
     }
 }

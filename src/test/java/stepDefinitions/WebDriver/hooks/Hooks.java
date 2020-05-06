@@ -1,4 +1,4 @@
-package stepDefinitions.hooks;
+package stepDefinitions.WebDriver.hooks;
 
 
 import io.cucumber.core.api.Scenario;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import stepDefinitions.World;
+import stepDefinitions.WebDriver.World;
 
 import java.io.File;
 import java.io.FileInputStream;

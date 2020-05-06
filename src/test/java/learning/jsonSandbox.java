@@ -1,8 +1,8 @@
 package learning;
 
 import io.restassured.path.json.JsonPath;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class jsonSandbox {
 
@@ -40,7 +40,7 @@ public class jsonSandbox {
         for(int i=0;i<numCourses;i++){
             total += (js.getInt("courses["+i+"].price")*js.getInt("courses["+i+"].copies"));
         }
-        Assertions.assertEquals(puchaseTotal,total);
+        Assert.assertEquals(puchaseTotal,total);
         System.out.println("Total amount = "+total);
     }
 }

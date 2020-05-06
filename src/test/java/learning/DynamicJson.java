@@ -2,7 +2,7 @@ package learning;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 

@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitions.WebDriver;
 
 import java.util.HashMap;
 

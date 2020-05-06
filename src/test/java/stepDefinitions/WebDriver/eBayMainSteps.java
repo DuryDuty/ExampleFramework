@@ -1,9 +1,10 @@
-package stepDefinitions;
+package stepDefinitions.WebDriver;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import pages.eBayMainPage;
+import stepDefinitions.ReusableFunctions;
 
 public class eBayMainSteps {
     private World world;
