@@ -42,7 +42,7 @@ public class Hooks {
 		}
 
 		browser = properties.getProperty("Browser");
-		url = properties.getProperty("URL");
+		url = properties.getProperty("ebayURL");
 
 		if (browser.equalsIgnoreCase("Firefox")) {
 			System.setProperty("webdriver.gecko.driver",
@@ -65,7 +65,7 @@ public class Hooks {
 		for (Map.Entry<Object, Object> entry : properties.entrySet()) {
 			map.put((String) entry.getKey(), (String) entry.getValue());
 		}
-		this.world.context.put("config", map);
+		this.world.context.put("utils", map);
 		world.context.put("driver", driver);
 	}
 

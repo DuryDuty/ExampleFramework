@@ -3,12 +3,11 @@ package learning;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.Test;
-import stepDefinitions.ReusableFunctions;
+import utils.ReusableFunctions;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;

@@ -1,14 +1,25 @@
 Feature: Verify functionality of API
 
 
-  Scenario Outline: Verify adding place to API
-    Given Add place Payload with "<name>", "<language>", "<address>"
-    When user calls "AddPlaceAPI" with "POST" request
+  Scenario Outline: Add place to API
+    Given payload generated with "<name>", "<language>", "<address>"
+    When user calls "addPlace" with "POST" request
     Then the response returns "200"
     And "status" in response body is "OK"
-    And "scope" in response body is "APP"
+    And place_id is stored in a hashmap
 
     Examples:
     | name    | language    | address     |
-    | noodle  | EN          | 1 noodle st |
+    | noodle2 | EN          | 1 noodle st |
     | cakes   | EN          | 12 cake st  |
+
+  Scenario Outline: Get places from API
+    Given GET request has "<name>" place_id parameter
+    When user calls "getPlace" with "GET" request
+    Then the response returns "200"
+    And "name" in response body is "<name>"
+
+    Examples:
+      | name    |
+      | noodle2 |
+      | cakes   |

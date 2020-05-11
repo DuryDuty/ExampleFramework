@@ -3,7 +3,7 @@ package stepDefinitions.WebDriver;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.WebDriver;
 import pages.itemPage;
-import stepDefinitions.ReusableFunctions;
+import utils.ReusableFunctions;
 
 public class itemSteps {
     private World world;

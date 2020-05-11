@@ -1,4 +1,4 @@
-package learning;
+package utils;
 
 public class Location {
 private double lat;
