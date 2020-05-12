@@ -1,3 +1,4 @@
+@Selenium
 Feature: eBay shopping cart
   Test adding and deleting from shopping cart
 

@@ -1,5 +1,5 @@
+@API
 Feature: Verify functionality of API
-
 
   Scenario Outline: Add place to API
     Given payload generated with "<name>", "<language>", "<address>"

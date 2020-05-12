@@ -1,4 +1,4 @@
-package stepDefinitions.WebDriver.hooks;
+package stepDefinitions.hooks;
 
 import org.openqa.selenium.WebDriver;
 import stepDefinitions.WebDriver.World;

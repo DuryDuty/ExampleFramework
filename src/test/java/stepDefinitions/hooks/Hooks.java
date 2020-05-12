@@ -1,4 +1,4 @@
-package stepDefinitions.WebDriver.hooks;
+package stepDefinitions.hooks;
 
 
 import io.cucumber.core.api.Scenario;
@@ -28,7 +28,7 @@ public class Hooks {
 		this.world = world;
 	}
 
-	@Before(order=0)
+	@Before("@Selenium")
 	public void doSetupBeforeExecution() {
 		Properties properties = new Properties();
 		String browser;
@@ -69,7 +69,7 @@ public class Hooks {
 		world.context.put("driver", driver);
 	}
 
-	@After(order=0)
+	@After("@Selenium")
 	public void doCleanupAfterExecution(Scenario scenario){
 		driver.quit();
 	}

@@ -19,7 +19,8 @@ public class itemSteps {
     }
 
     @And("the shopper adds the first item to their cart")
-    public void theShopperAddsTheFirstItemToTheirCart() {
+    public void theShopperAddsTheFirstItemToTheirCart() throws InterruptedException {
+        Thread.sleep(1500);
         itemPage.clickAddCart();
         itemPage.clickGoToCart();
     }
