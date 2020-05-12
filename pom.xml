@@ -26,7 +26,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.0.0</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
         <dependency>
@@ -51,19 +51,19 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>4.3.0</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
             <version>4.3.0</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
             <version>4.3.0</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/br.com.objectos.way/pojo -->
         <dependency>
@@ -72,7 +72,12 @@
             <version>0.6.0</version>
             <type>pom</type>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.openrdf.sesame/sesame-model -->
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-model</artifactId>
+            <version>4.1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -118,13 +123,13 @@
         </pluginManagement>
         <resources>
             <resource>
-                <targetPath>META-INF/wooliesframework</targetPath>
-                <directory>${basedir}/src/test/config</directory>
+                <targetPath>META-INF/ExampleFramework</targetPath>
+                <directory>src/main/config</directory>
             </resource>
         </resources>
         <testResources>
             <testResource>
-                <directory>${basedir}/src/test/resources</directory>
+                <directory>src/main/resources</directory>
             </testResource>
         </testResources>
     </build>
