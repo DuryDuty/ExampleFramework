@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
+import static org.junit.Assert.*;
 
 public class ReusableFunctions {
     WebDriver driver;
@@ -46,11 +47,12 @@ public class ReusableFunctions {
     }
 
     public void assertExists(WebElement element){
-        Assert.assertTrue(element.isDisplayed());
+        assertTrue(element.isDisplayed());
     }
 
     public static void genericCompare(String actualValue, String expectedValue){
-        Assert.assertEquals(actualValue,expectedValue);
+        assertEquals(actualValue,expectedValue);
+
     }
 
     //Used for getting the text of the selected value from a combo box
