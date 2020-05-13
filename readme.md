@@ -1,22 +1,20 @@
 # Basic Framework for training & job applications
 
-Goal of this exercise:
-To demonstrate your ability to design and implement browser-based automated tests
-Task: Write an automated browser-based test on eBay.com.au
+**Purpose:**
+For learning how frameworks are built and implemented for automation purposes. 
 
-1. Go to ebay.com.au. Search for books. 
-2. Click on the first item on the search result. 
-3. Add the book to the cart. 
-4. Go to the Cart. 
-5. Validate the book is added to the cart. 
-6. Remove the book from the cart. 
-7. Validate the cart is empty.
+Current implementation includes Selenium and RESTAssured, and both rely on Cucumber BDD
 
-Make relevant assertions where possible.
+**Selenium:**
+The selenium example uses eBay to search for an item, adds it to the cart, then removes it Making relevant assertions where necessary.
 
-Details:
-* Use Selenium WebDriver (preferred) or any open source tool of your choice
-* Implement using any language that Selenium WebDriver supports or your preferred open source tool supports.
-* Create a basic framework. Use BDD.
-* Implement using design patterns (e.g. page object pattern)
-* Ensure your solution/project compiles with no errors.
+**RESTAssured:**
+Followed a udemy course for implementing an API using BDD. Currently it adds an object through a POST, then confirms with GET request.
+
+Execution can be run through a maven command: 
+**mvn test**
+
+It can also be extended with tags:
+
+
+**mvn test -Dcucumber.options="--tags @API"**
