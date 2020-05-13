@@ -31,7 +31,6 @@ public class placeAPI {
 
     @Given("payload generated with {string}, {string}, {string}")
     public void addPlacePayloadWith(String name, String lang, String address) throws FileNotFoundException {
-        System.out.println("Cheese");
         placeName = name;
         requestSpec = given().spec(payloadBuilder.requestSpecification()).body(payloadBuilder.getAddPlaceBody(name,lang,address));
         responseSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
