@@ -21,7 +21,7 @@ public class eBayMainSteps {
 
     @Given("A shopper searches for {string}")
     public void aShopperSearchesFor(String arg0) {
-        mainPage.enterSearch(arg0);
+        mainPage.enterSearch("Books");
         mainPage.clickSearch();
     }
 

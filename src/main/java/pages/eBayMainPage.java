@@ -16,7 +16,7 @@ public class eBayMainPage {
     @FindBy(xpath = "//input[@id='gh-btn']")
     private WebElement btnSearch;
 
-    @FindBy(xpath = "(//li[@class='s-item    '])[1]//div[@class='s-item__info clearfix']/a")
+    @FindBy(xpath = "(//li[@class='s-item    s-item--watch-at-corner'])[1]//div[@class='s-item__info clearfix']/a")
     private WebElement linkFirstItem;
 
     public eBayMainPage(WebDriver driver){
